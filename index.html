@@ -3,7 +3,7 @@
 <head>
 <meta name="google-site-verification" content="fI6VE2a41HjVNPJzio2iur_L8SaiEbpX48CRMR9H1PQ" />
   <meta charset="UTF-8" />
-  <title>??????</title>
+  <title>オセロゲーム</title>
 
   <style>
     body {
@@ -95,11 +95,11 @@
 
   <div class="layout">
 
-    <!-- ??? -->
+    <!-- 左広告 -->
     <div class="ad">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8398161859137802"
      crossorigin="anonymous"></script>
-<!-- ??? -->
+<!-- オセロ -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8398161859137802"
@@ -111,21 +111,21 @@
 </script>
     </div>
 
-    <!-- ??? -->
+    <!-- ゲーム -->
     <div class="game-area">
-      <h1>??????</h1>
-      <p id="status">?????</p>
+      <h1>オセロゲーム</h1>
+      <p id="status">黒の番です</p>
 
       <div id="board"></div>
 
-      <button onclick="resetGame()">????</button>
+      <button onclick="resetGame()">リセット</button>
     </div>
 
-    <!-- ??? -->
+    <!-- 右広告 -->
     <div class="ad">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8398161859137802"
      crossorigin="anonymous"></script>
-<!-- ??? -->
+<!-- オセロ -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-8398161859137802"
@@ -202,7 +202,7 @@
       const flipped = getFlippedDiscs(row, col, currentPlayer);
 
       if (flipped.length === 0) {
-        alert("?????????");
+        alert("そこには置けません");
         return;
       }
 
@@ -226,7 +226,7 @@
           return;
         }
 
-        alert("??????????????????");
+        alert("置ける場所がないため、パスされました");
       }
 
       renderBoard();
@@ -294,8 +294,8 @@
     function updateStatus() {
       statusElement.textContent =
         currentPlayer === BLACK
-          ? "?????"
-          : "?????";
+          ? "黒の番です"
+          : "白の番です";
     }
 
     function endGame() {
@@ -315,16 +315,16 @@
       }
 
       let result =
-        `?????? ?: ${blackCount} ?: ${whiteCount}\n`;
+        `ゲーム終了！ 黒: ${blackCount} 白: ${whiteCount}\n`;
 
       if (blackCount > whiteCount)
-        result += "???????";
+        result += "黒の勝ちです！";
 
       else if (whiteCount > blackCount)
-        result += "???????";
+        result += "白の勝ちです！";
 
       else
-        result += "???????";
+        result += "引き分けです！";
 
       alert(result);
     }
